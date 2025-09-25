@@ -6,13 +6,17 @@ class FabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-          child: const Icon(Icons.thumb_up),
-          backgroundColor: Colors.pink,
+        home: Scaffold(
+          floatingActionButton: Builder(
+            builder: (context) => FloatingActionButton(
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('You pressed the button!')),
+              );
+            },
+            child: const Icon(Icons.thumb_up),
+            backgroundColor: Colors.pink,
+          ),
         ),
       ),
     );
